@@ -45,7 +45,9 @@ chmod -R 0750 /var/db/samba4/winbindd_privileged
 fetch -o /usr/local/pkg -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/samba.inc
 fetch -o /usr/local/pkg -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/samba.xml
 
-fetch -o - -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/script-config.php | /usr/local/sbin/pfSsh.php
+fetch -o /tmp/do_config.php -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/script-config.php
+/usr/local/sbin/pfSsh.php < /tmp/do_config.php
+rm -f /tmp/do_config
 
 mkdir -p /var/db/samba/winbindd_privileged
 chown -R :proxy /var/db/samba/winbindd_privileged
