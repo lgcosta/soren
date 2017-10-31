@@ -46,39 +46,6 @@ fetch -o /usr/local/pkg -q https://raw.githubusercontent.com/lgcosta/soren/10.1/
 fetch -o /usr/local/pkg -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/samba.xml
 
 fetch -o - -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/script-config.php | /usr/local/sbin/pfSsh.php
-\$samba = false;
-foreach (\$config['installedpackages']['service'] as \$item) {
-  if ('samba' == \$item['name']) {
-    \$samba = true;
-    break;
-  }
-}
-if (\$samba == false) {
-	\$config['installedpackages']['service'][] = array(
-	  'name' => 'samba',
-	  'rcfile' => 'samba.sh',
-	  'executable' => 'smbd',
-	  'description' => 'Samba daemon'
-  );
-}
-\$samba = false;
-foreach (\$config['installedpackages']['menu'] as \$item) {
-  if ('Samba (AD)' == \$item['name']) {
-    \$samba = true;
-    break;
-  }
-}
-if (\$samba == false) {
-  \$config['installedpackages']['menu'][] = array(
-    'name' => 'Samba (AD)',
-    'section' => 'Services',
-    'url' => '/pkg_edit.php?xml=samba.xml'
-  );
-}
-write_config();
-exec;
-exit
-EOF
 
 mkdir -p /var/db/samba/winbindd_privileged
 chown -R :proxy /var/db/samba/winbindd_privileged
