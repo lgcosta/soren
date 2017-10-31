@@ -45,7 +45,7 @@ chmod -R 0750 /var/db/samba4/winbindd_privileged
 fetch -o /usr/local/pkg -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/samba.inc
 fetch -o /usr/local/pkg -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/samba.xml
 
-/usr/local/sbin/pfSsh.php <<EOF
+fetch -o - -q https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/script-config.php | /usr/local/sbin/pfSsh.php
 \$samba = false;
 foreach (\$config['installedpackages']['service'] as \$item) {
   if ('samba' == \$item['name']) {
