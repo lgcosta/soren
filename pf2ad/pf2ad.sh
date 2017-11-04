@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Verifica versao pfSense
-if [ "$(cat /etc/version)" != "v3.1.15-S" ] || [ "$(cat /etc/version)" != "2.2.6" ]; then
+if [ "$(cat /etc/version)" != "v3.1.15-S" ] || [ "$(cat /etc/version)" != "2.2.6-RELEASE" ]; then
 	echo "ERROR: You need the pfSense version 2.2.6 or v3.1.15-S to apply this script"
 	exit 2
 fi
