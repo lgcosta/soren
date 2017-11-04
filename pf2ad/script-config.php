@@ -2,7 +2,6 @@ $samba = false;
 foreach ($config['installedpackages']['service'] as $item) {
   if ('samba' == $item['name']) {
     $samba = true;
-    break;
   }
 }
 if ($samba == false) {
@@ -17,7 +16,6 @@ $samba = false;
 foreach ($config['installedpackages']['menu'] as $item) {
   if ('Samba (AD)' == $item['name']) {
     $samba = true;
-    break;
   }
 }
 if ($samba == false) {
