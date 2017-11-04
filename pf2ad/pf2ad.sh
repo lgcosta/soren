@@ -35,7 +35,7 @@ pf2ad: {
 EOF
 
 /usr/sbin/pkg update -r pf2ad
-/usr/sbin/pkg install -r pf2ad net/samba44
+/usr/sbin/pkg install -r pf2ad net/samba44 net/freeradius3
 
 rm -rf /usr/local/etc/pkg/repos/pf2ad.conf
 /usr/sbin/pkg update
