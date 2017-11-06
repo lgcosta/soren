@@ -49,8 +49,8 @@ On finish build of Jail and Ports, compile the packages
 
 ```bash
 
-pkg install ports-mgmt/dialog4ports
-mkdir /usr/ports/distfiles
+pkg install -y ports-mgmt/dialog4ports
+mkdir -p /usr/ports/distfiles
 poudriere bulk -p local -j SOREN-3_1_15-S -f soren/buildtools/packages.ports
 
 ```
