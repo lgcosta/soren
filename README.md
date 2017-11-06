@@ -71,3 +71,7 @@ To use the script, simply run the command in a console shell of pfSense, as show
 `fetch -q -o - https://raw.githubusercontent.com/lgcosta/soren/10.1/pf2ad/pf2ad.sh | sh`
 
 Ready, now you can setup the environment with your configuration.
+
+Example:
+
+[![asciicast](https://asciinema.org/a/G7RIIYhsA0YlHzIbHdEfTUOvK.png)](https://asciinema.org/a/G7RIIYhsA0YlHzIbHdEfTUOvK)
