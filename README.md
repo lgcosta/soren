@@ -33,17 +33,17 @@ cp -r soren/buildtools/poudriere.d/* /usr/local/etc/poudriere.d/
 
 Now, make the ports and jail to build the packages:
 
-Ports
+**Ports:**
 
-``` poudriere ports -c -p local -m svn -B branches/2017Q1 ```
+`poudriere ports -c -p local -m svn -B branches/2017Q1`
 
-Note: Because of the version of pfSense (2.2.6), the kernel used is 10.1 (without support when new updates), we use the specified branch of ports
+> Note: Because of the version of pfSense (*2.2.6*), the kernel used is *10.1* (without support when new updates), we use the specified branch of ports
 
-Jail
+**Jail:**
 
-``` poudriere jail -c -j SOREN-3_1_15-S -v releng/10.1 -m svn ```
+`poudriere jail -c -j SOREN-3_1_15-S -v releng/10.1 -m svn`
 
-Note: Again, because of version of pfSense, we use the specified branch
+> Note: Again, because of version of pfSense, we use the specified branch
 
 On finish build of Jail and Ports, compile the packages
 
@@ -55,7 +55,7 @@ poudriere bulk -p local -j SOREN-3_1_15-S -f soren/buildtools/packages.ports
 
 ```
 
-Note: The localization of options of packages is `/usr/local/etc/poudriere.d/SOREN-3_1_15-S-options`, if necessary change the options, use the command `poudriere options -c -p local -j SOREN-3_1_15-S -f soren/buildtools/packages.ports`
+> Note: The localization of options of packages is `/usr/local/etc/poudriere.d/SOREN-3_1_15-S-options`, if necessary change the options, use the command `poudriere options -c -p local -j SOREN-3_1_15-S -f soren/buildtools/packages.ports`
 
 Ready, now you have the packages build with necessary binaries to use.
 
