@@ -52,7 +52,7 @@ fetch -o /tmp/do_config.php -q https://raw.githubusercontent.com/lgcosta/soren/1
 rm -f /tmp/do_config
 
 mkdir -p /var/db/samba/winbindd_privileged
-chown -R :proxy /var/db/samba/winbindd_privileged
+chown -R :freerad /var/db/samba/winbindd_privileged
 chmod -R 0750 /var/db/samba/winbindd_privileged
 
 /etc/rc.d/ldconfig restart
