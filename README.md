@@ -26,8 +26,9 @@ Clone or download files necessaries to prepare the environment:
 ```bash
 
 git clone https://github.com/lgcosta/soren.git
-cd soren/buildtools/poudriere.d
-cp -r soren/buildtools/poudriere.d/* /usr/local/etc/poudriere.d/
+cd soren
+git checkout 10.1
+cp -r buildtools/poudriere.d/* /usr/local/etc/poudriere.d/
 
 ```
 
