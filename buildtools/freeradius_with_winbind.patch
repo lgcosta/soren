@@ -1,0 +1,38 @@
+diff --git a/Makefile b/Makefile
+index 8b7777f..b098539 100644
+--- Makefile
++++ Makefile
+@@ -43,7 +43,7 @@ OPTIONS_SUB=	yes
+ OPTIONS_DEFINE=	USER KERBEROS HEIMDAL HEIMDAL_PORT LDAP MYSQL \
+ 		PGSQL UNIXODBC FIREBIRD REDIS PYTHON RUBY \
+ 		EXPERIMENTAL UDPFROMTO DEVELOPER EDIR PERL REST \
+-		FREETDS IDN SSL_PORT DOCS SQLITE3
++		FREETDS IDN SSL_PORT DOCS SQLITE3 WINBIND
+ OPTIONS_DEFAULT=USER PERL
+ 
+ USER_DESC=		Run as user freeradius, group freeradius
+@@ -57,6 +57,7 @@ DEVELOPER_DESC=		Enable developer options
+ EDIR_DESC=		Enable eDirectory support (implies LDAP)
+ REST_DESC=		Enable RESTful API support
+ SSL_PORT_DESC=		Use OpenSSL from the ports collection
++WINBIND_DESC=		Enable winbind support
+ 
+ SQLITE3_CONFIGURE_WITH=rlm_sql_sqlite
+ SQLITE3_LIB_DEPENDS=	libsqlite3.so:databases/sqlite3
+@@ -152,6 +153,15 @@ CONFIGURE_ARGS+=--without-rlm_sql_unixodbc
+ PLIST_SUB+=	UNIXODBC="@comment "
+ .endif
+ 
++.if ${PORT_OPTIONS:MWINBIND}
++CONFIGURE_ARGS+=--with-winbind-include-dir=${LOCALBASE}/include/samba4 --with-winbind-lib-dir=${LOCALBASE}/lib/samba4
++PLIST_SUB+=	WINBIND=""
++BUILD_DEPENDS+=	smbclient:net/samba44
++.else
++CONFIGURE_ARGS+=--without-winbind
++PLIST_SUB+=	WINBIND="@comment "
++.endif
++
+ .if ${PORT_OPTIONS:MFIREBIRD}
+ USES+=		firebird
+ CONFIGURE_ARGS+=--with-rlm_sql_firebird
+

@@ -25,6 +25,7 @@ Clone or download files necessaries to prepare the environment:
 
 ```bash
 
+cd /tmp
 git clone https://github.com/lgcosta/soren.git
 cd soren
 git checkout 10.1
@@ -39,6 +40,14 @@ Now, make the ports and jail to build the packages:
 `poudriere ports -c -p local -m svn -B branches/2017Q1`
 
 > Note: Because of the version of pfSense (*2.2.6*), the kernel used is *10.1* (without support when new updates), we use the specified branch of ports
+
+Apply patch to setup winbind support in Freeradius
+
+```bash
+
+cd /usr/local/poudriere/ports/local/net/freeradius3
+patch -p0 < /tmp/soren/buildtools/freeradius_with_winbind.patch 
+```
 
 **Jail:**
 
