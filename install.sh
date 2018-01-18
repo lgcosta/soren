@@ -35,7 +35,7 @@ pf2ad: {
 EOF
 
 /usr/sbin/pkg update
-/usr/sbin/pkg install -r soren net/mpd5 security/ipsec-tools security/strongwan
+/usr/sbin/pkg install -r soren net/mpd5 security/ipsec-tools security/strongswan
 
 rm -rf /usr/local/etc/pkg/repos/soren.conf
 /usr/sbin/pkg update
